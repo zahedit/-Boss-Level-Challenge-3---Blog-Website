@@ -1,0 +1,16 @@
+<%- include('partials/header.ejs') %>
+    <!-- Blog posts -->
+     <% posts.forEach(post => { %>
+    <div class="post">
+        <h2><a href="/posts/<%= encodeURIComponent(post.title) %>"><%= post.title %></a></h2>
+        <p>
+            <% if (post.content.length > 100) { %>
+                <%= post.content.substring(0, 100) %>... 
+                <a href="/posts/<%= encodeURIComponent(post.title) %>">Read More</a>
+            <% } else { %>
+                <%= post.content %>
+            <% } %>
+        </p>
+    </div>
+     <% }) %>
+<%- include('partials/footer.ejs') %>
